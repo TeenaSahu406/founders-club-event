@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Founders Club Events</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Welcome to Founders Club Events</h1>
+        <p><strong>Location:</strong> College Auditorium</p>
+
+        <h2>Upcoming Events</h2>
+
+        <div class="event-box">
+            <h3>Foundathon</h3>
+            <p>Date: August 20, 2025</p>
+            <a href="/foundathon">Register for Foundathon</a>
+        </div>
+
+        <div class="event-box">
+            <h3>Ideathon</h3>
+            <p>Date: September 10, 2025</p>
+            <a href="/ideathon">Register for Ideathon</a>
+        </div>
+
+        <br>
+        <a href="/contact">Contact Us</a>
+
+        {% if message %}
+            <p style="color: green; font-weight: bold; margin-top: 20px;">{{ message }}</p>
+        {% endif %}
+    </div>
+
+</body>
+</html>
