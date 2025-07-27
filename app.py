@@ -1,26 +1,23 @@
 from flask import Flask, render_template, request, redirect
 from pymongo import MongoClient
-from urllib.parse import quote_plus  # For encoding special characters in password
 
 # 1. Create Flask App
 app = Flask(__name__)
 
-# 2. Connect to MongoDB (with password safely encoded)
-username = "teenasahu0406"
-password = quote_plus("teena@0406")  # encode @ symbol
-uri = f"mongodb+srv://{username}:{password}@cluster0.jimipq5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-client = MongoClient(uri)
+# 2. Connect to MongoDB (replace with your actual password)
+client = MongoClient("mongodb+srv://teenasahu0406:teenapass123@cluster0.jimipq5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 
-db = client["founders_event"]  # Database name
-registrations = db["registrations"]  # Collection for event registrations
-messages = db["messages"]  # Collection for contact form messages
+# MongoDB Database and Collections
+db = client["founders_event"]
+registrations = db["registrations"]
+messages = db["messages"]
 
-# 3. Home Page - Event Info
+# 3. Home Page
 @app.route('/')
 def index():
     return render_template('index.html')
 
-# 4. Register Page
+# 4. Registration Page
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
@@ -74,6 +71,6 @@ def ideathon():
         return render_template('index.html', message='Registered for Ideathon!')
     return render_template('ideathon.html')
 
-# 8. Run the Flask app
+# 8. Run App
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
