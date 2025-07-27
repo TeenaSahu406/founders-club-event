@@ -5,7 +5,7 @@ from pymongo import MongoClient
 app = Flask(__name__)
 
 # 2. Connect to MongoDB
-client = MongoClient("mongodb://localhost:27017/")
+client = MongoClient("mongodb+srv://teenasahu0406:teena@0406@cluster0.xxxxx.mongodb.net/?retryWrites=true&w=majority")
 db = client["founders_event"]  # database name
 registrations = db["registrations"]  # collection for event registrations
 messages = db["messages"]  # collection for contact form messages
